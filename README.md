@@ -37,18 +37,18 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 TODOs:
 
-- [X] Initial Build of the project
-- [X] Add the basic structure
-- [X] Add the basic components
-- [X] Add the basic page
-- [X] Add the state management
-- [ ] Update the README.md
-- [ ] Add color palette/ dark&light mode
+- [x] Initial Build of the project
+- [x] Add the basic structure
+- [x] Add the basic components
+- [x] Add the basic page
+- [x] Add the state management
+- [x] Add color palette/mode
 - [ ] Write the tests
+- [ ] Add the i18n
+- [ ] Update the README.md
 - [ ] Add the CI/CD
 - [ ] Deploy
 - [ ] Add the analytics
 - [ ] Add the SEO
-- [ ] Add the PWA
-- [ ] Add the i18n
 - [ ] Add the CMS
+- [ ] Add local storage option to save theme
