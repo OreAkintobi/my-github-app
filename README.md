@@ -37,11 +37,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 TODOs:
 
-- [x] Initial Build of the project
-- [x] Add the basic structure
-- [x] Add the basic components
-- [x] Add the basic page
-- [x] Add the state management
+- [X] Initial Build of the project
+- [X] Add the basic structure
+- [X] Add the basic components
+- [X] Add the basic page
+- [X] Add the state management
 - [ ] Update the README.md
 - [ ] Add color palette/ dark&light mode
 - [ ] Write the tests
