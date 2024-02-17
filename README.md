@@ -37,7 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 TODOs:
 
-- Initial Build of the project
+- [x] Initial Build of the project
 - [x] Add the basic structure
 - [x] Add the basic components
 - [x] Add the basic page
