@@ -9,7 +9,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [theme, setTheme] = useState(Theme.Purple);
+  const [theme, setTheme] = useState(Theme.Blue);
 
   const changeTheme = (theme: Theme) => {
     setTheme(theme);
