@@ -1,9 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const CLIENT_SECRET = 'c36c52f3a25606fee77480909e1c006f68b5e1ab';
-const CLIENT_ID = '7d8bf7ea78c682ff8fdb';
-
 export const searchUsersThunk = createAsyncThunk<
   any | null,
   { user: string },
@@ -11,7 +8,7 @@ export const searchUsersThunk = createAsyncThunk<
 >('searchUser', async ({ user }, { rejectWithValue }) => {
   try {
     const response = await axios.get(
-      `https://api.github.com/search/users?q=${user}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&per_page=5`
+      `https://api.github.com/search/users?q=${user}&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}&per_page=5`
     );
 
     return !response.data ? null : response?.data?.items;
