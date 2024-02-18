@@ -46,9 +46,9 @@ TODOs:
 - [x] Add color palette/mode
 - [x] Write the tests
 - [x] Add local storage option to save theme
-- [ ] Add multi-language support
-- [ ] Add the CMS
-- [ ] Write a comprehensive README.md
-- [ ] Add the CI/CD
+- [x] Add multi-language support
 - [ ] Deploy
+- [ ] Write a comprehensive README.md
+- [ ] Add the CMS
+- [ ] Add the CI/CD
 - [ ] Add the analytics
