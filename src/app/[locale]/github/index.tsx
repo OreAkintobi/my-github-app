@@ -1,14 +1,26 @@
 import { RootState, useAppDispatch, useAppSelector } from '@/store';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { useRouter, usePathname } from 'next/navigation';
 import { getUserReposThunk, searchUsersThunk } from '@/store/thunks';
 import { User as UserComponent, UserSkeleton } from '@/components';
 import { User } from '@/types';
 import { Theme, themes, useTheme } from '@/theme';
+import { locales } from '@/i18n';
+import germany from './germany.png';
+import uk from './united-kingdom.png';
 
 export const Github: React.FC = () => {
   const [userSearchTerm, setUserSearchTerm] = useState('');
   const [selectedUser, setSelectedUser] = useState('');
   const { color, changeTheme } = useTheme();
+  const t = useTranslations('Github');
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const realPath = pathname.split('/')[0];
+  const currentLocale = pathname.split('/')[1];
 
   const handleThemeChange = (color: Theme) => {
     changeTheme(color);
@@ -33,7 +45,7 @@ export const Github: React.FC = () => {
       className={`mx-auto min-h-lvh py-8 bg-gradient-to-r from-${color}-100 via-${color}-300 to-${color}-500 text-white p-2`}
     >
       <h1 className={`text-4xl text-black font-bold text-center mb-4`}>
-        GitHub User Search
+        {t('title')}
       </h1>
 
       <div
@@ -45,7 +57,7 @@ export const Github: React.FC = () => {
           }}
           type="text"
           className={`w-full border border-gray-300 rounded-md px-4 py-2 mb-4 focus:outline-none focus:border-${color}-500 text-black`}
-          placeholder="Enter GitHub username"
+          placeholder={t('searchPlaceholder')}
           value={userSearchTerm}
           onChange={(e) => setUserSearchTerm(e.target.value)}
         />
@@ -54,13 +66,13 @@ export const Github: React.FC = () => {
           onClick={handleSearch}
           disabled={loading}
         >
-          {loading ? 'Searching...' : 'Search'}
+          {loading ? t('searching') : t('search')}
         </button>
         {error && <p className="text-red-500 mt-2">{error}</p>}
-        <p>{reposLoading ? 'Getting Repos...' : ''}</p>
+        <p>{reposLoading ? t('reposLoading') : ''}</p>
 
         <p className={`text-xl text-black font-bold text-center mt-4`}>
-          Switch Colors
+          {t('changeColors')}
         </p>
         <div className="flex justify-center mb-4">
           {themes.map((theme) => (
@@ -71,6 +83,34 @@ export const Github: React.FC = () => {
               }`}
               onClick={() => handleThemeChange(theme)}
             />
+          ))}
+        </div>
+
+        <p className={`text-xl text-black font-bold text-center mt-4`}>
+          Switch Locales
+        </p>
+        <div className="flex justify-center mb-4">
+          {locales.map((locale) => (
+            <div
+              key={locale}
+              className={`w-12 h-12 rounded-full cursor-pointer mx-2 ${
+                currentLocale === locale ? 'border-2 border-black' : ''
+              }`}
+              onClick={() => {
+                if (currentLocale === locale) return;
+
+                router.push(`${realPath}/${locale}`);
+              }}
+            >
+              <Image
+                src={locale === 'de' ? germany : uk}
+                alt="flag"
+                className="w-full h-full rounded-full"
+                width={24}
+                height={24}
+                placeholder="blur"
+              />
+            </div>
           ))}
         </div>
       </div>

@@ -1,0 +1,11 @@
+{
+	"Github": {
+		"title": "GitHub-Benutzersuche",
+		"searchPlaceholder": "Benutzername suchen",
+		"search": "Suchen",
+		"searching": "Suche...",
+		"reposLoading": "Lade Repositories...",
+		"changeColors": "Farben ändern",
+		"noRepos": "Dieser Benutzer hat keine Repositorys"
+	}
+}

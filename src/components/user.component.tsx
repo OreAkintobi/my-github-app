@@ -10,6 +10,7 @@ import { Transition, Disclosure } from '@headlessui/react';
 import { Repo as RepoType, User as UserType } from '@/types';
 import { Repo as RepoComponent } from './repo.component';
 import { useTheme } from '@/theme';
+import { useTranslations } from 'next-intl';
 
 type UserProps = {
   user: UserType;
@@ -61,6 +62,7 @@ export const User = ({
   onSelect,
 }: UserProps) => {
   const theme = useTheme();
+  const t = useTranslations('Github');
 
   const handleToggle = () => {
     onSelect(user);
@@ -139,14 +141,12 @@ export const User = ({
                   {isOpen && (
                     <div className="border-t border-gray-200 px-4 py-5 sm:px-6 transition-all duration-300">
                       {isLoadingRepos && (
-                        <p className="text-gray-500">Loading repositories...</p>
+                        <p className="text-gray-500">{t('reposLoading')}</p>
                       )}
                       {error && <p className="text-red-500">{error}</p>}
 
                       {repos.length === 0 && !isLoadingRepos && (
-                        <p className="text-red-500">
-                          This user has no repositories
-                        </p>
+                        <p className="text-red-500">{t('noRepos')}</p>
                       )}
 
                       {repos && (
