@@ -1,5 +1,13 @@
-import { PropsWithChildren, createContext, useContext, useState } from 'react';
-import { Theme } from './';
+import {
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+import { Theme, themes } from './';
+
+const LOCAL_STORAGE_THEME_KEY = 'theme';
 
 interface ThemeContextType {
   color: Theme;
@@ -9,11 +17,17 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [theme, setTheme] = useState(Theme.Blue);
+  const [theme, setTheme] = useState<Theme>(undefined as any);
 
   const changeTheme = (theme: Theme) => {
     setTheme(theme);
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
   };
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY);
+    setTheme(storedTheme ? (storedTheme as Theme) : themes[0]);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ color: theme, changeTheme }}>

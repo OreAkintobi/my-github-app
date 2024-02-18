@@ -42,13 +42,13 @@ TODOs:
 - [x] Add the basic components
 - [x] Add the basic page
 - [x] Add the state management
+- [x] Add the functionality
 - [x] Add color palette/mode
-- [ ] Write the tests
+- [x] Write the tests
+- [x] Add local storage option to save theme
 - [ ] Add the i18n
 - [ ] Update the README.md
 - [ ] Add the CI/CD
 - [ ] Deploy
 - [ ] Add the analytics
-- [ ] Add the SEO
 - [ ] Add the CMS
-- [ ] Add local storage option to save theme
