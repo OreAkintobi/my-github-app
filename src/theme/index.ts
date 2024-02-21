@@ -5,6 +5,8 @@ export enum Theme {
   Purple = 'purple',
 }
 
-export const themes = [Theme.Blue, Theme.Green, Theme.Purple, Theme.Red];
+export const themes = Object.keys(Theme).map(
+  (key) => Theme[key as keyof typeof Theme]
+) as Theme[];
 
 export * from './context';
