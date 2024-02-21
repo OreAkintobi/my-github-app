@@ -17,7 +17,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(undefined as any);
+  const [theme, setTheme] = useState<Theme>();
 
   const changeTheme = (theme: Theme) => {
     setTheme(theme);
@@ -26,11 +26,11 @@ export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY);
-    setTheme(storedTheme ? (storedTheme as Theme) : themes[0]);
+    setTheme(storedTheme as Theme);
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ color: theme, changeTheme }}>
+    <ThemeContext.Provider value={{ color: theme ?? themes[0], changeTheme }}>
       {children}
     </ThemeContext.Provider>
   );

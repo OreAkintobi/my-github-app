@@ -1,8 +1,9 @@
+import { Repo, UserResponse } from '@/types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const searchUsersThunk = createAsyncThunk<
-  any | null,
+  UserResponse,
   { user: string },
   { rejectValue: string }
 >('searchUser', async ({ user }, { rejectWithValue }) => {
@@ -22,7 +23,7 @@ export const searchUsersThunk = createAsyncThunk<
 });
 
 export const getUserReposThunk = createAsyncThunk<
-  any | null,
+  Repo[],
   { repoUrl: string },
   { rejectValue: string }
 >('getRepos', async ({ repoUrl }, { rejectWithValue }) => {
