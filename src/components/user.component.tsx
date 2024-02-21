@@ -77,7 +77,7 @@ export const User = ({
           const isOpen = open && isSelected;
 
           return (
-            <>
+            <div onClick={handleToggle}>
               <Disclosure.Button className="py-2 w-full">
                 <div className="px-4 py-5 sm:px-6 flex flex-col sm:flex-row items-center w-full">
                   <img
@@ -160,7 +160,7 @@ export const User = ({
                   )}
                 </Disclosure.Panel>
               </Transition>
-            </>
+            </div>
           );
         }}
       </Disclosure>
