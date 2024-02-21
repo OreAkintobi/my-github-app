@@ -11,7 +11,7 @@ import { locales } from '@/i18n';
 import germany from './germany.png';
 import uk from './united-kingdom.png';
 
-export const Github: React.FC = () => {
+export const Github = () => {
   const [userSearchTerm, setUserSearchTerm] = useState('');
   const [selectedUser, setSelectedUser] = useState('');
   const { color, changeTheme } = useTheme();
