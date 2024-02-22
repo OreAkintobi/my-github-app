@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const searchUsersThunk = createAsyncThunk<
-  UserResponse['items'],
+  UserResponse,
   { user: string },
   { rejectValue: string }
 >('searchUser', async ({ user }, { rejectWithValue }) => {

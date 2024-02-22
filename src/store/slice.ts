@@ -33,7 +33,7 @@ const { reducer, ...slice } = createSlice({
     builder.addCase(searchUsersThunk.fulfilled, (state, { payload }) => ({
       ...state,
       loading: false,
-      users: payload,
+      users: payload.items ?? [],
     }));
     builder.addCase(searchUsersThunk.rejected, (state, { payload }) => ({
       ...state,
